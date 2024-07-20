@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "tb_users" ALTER COLUMN "email" DROP DEFAULT,
+ALTER COLUMN "name" DROP DEFAULT,
+ALTER COLUMN "password" DROP DEFAULT;
