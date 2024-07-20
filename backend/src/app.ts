@@ -21,9 +21,7 @@ app.setErrorHandler(() => (error: any, _: any, reply: any) => {
     //@TODO:  log para uma ferramenta externa -> dataDog / newRelic / Sentry
   }
 
-  return reply
-    .status(500)
-    .send({
-      message: 'Ops, aconteceu algo inesperado, tente novamente mais tarde.'
-    })
+  return reply.status(500).send({
+    message: 'Ops, aconteceu algo inesperado, tente novamente mais tarde.'
+  })
 })

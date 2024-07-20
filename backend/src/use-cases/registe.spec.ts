@@ -3,7 +3,9 @@ import { compare } from 'bcryptjs'
 
 import { RegisterUseCase } from './register'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
-import { UserAlreadyExistsError } from './errors/user-already-exists-error'
+
+import { UserAlreadyExistsError } from '@/use-cases/errors/user-already-exists-error'
+import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists'
 
 describe('Register Use Case', () => {
   it('should be able to register', async () => {
@@ -57,5 +59,28 @@ describe('Register Use Case', () => {
         code: '#15DASFJLHX'
       })
     ).rejects.toBeInstanceOf(UserAlreadyExistsError)
+  })
+
+  it('should not be able to register with same code', async () => {
+    const usersRepository = new InMemoryUsersRepository()
+    const registerUseCase = new RegisterUseCase(usersRepository)
+
+    const code = '#2DASFJLHX'
+
+    await registerUseCase.execute({
+      name: 'John Doe2',
+      email: 'jhondoe2@example.com',
+      password: '123456',
+      code
+    })
+
+    await expect(() =>
+      registerUseCase.execute({
+        name: 'John Doe1',
+        email: 'jhondoe1@example.com',
+        password: '123456',
+        code
+      })
+    ).rejects.toBeInstanceOf(UserCodeAlreadyExists)
   })
 })

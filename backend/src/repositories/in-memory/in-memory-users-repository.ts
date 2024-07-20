@@ -29,4 +29,14 @@ export class InMemoryUsersRepository implements UsersRepository {
 
     return user
   }
+
+  async findByCode(code: string) {
+    const user = this.items.find((item) => item.code === code)
+
+    if (!user) {
+      return null
+    }
+
+    return user
+  }
 }
