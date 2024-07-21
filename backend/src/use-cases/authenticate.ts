@@ -2,7 +2,8 @@ import { UsersRepository } from '@/repositories/users-repository'
 
 import { User } from '@prisma/client'
 
-import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists'
+import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists-error'
+import { UserCodeInvalid } from '@/use-cases/errors/user-code-invalid-error'
 
 interface AuthenticateUseCaseRequest {
   code: string
@@ -21,14 +22,13 @@ export class AuthenticateUseCase {
     const user = await this.usersRepository.findByCode(code)
 
     if (!user) {
-      throw new UserCodeAlreadyExists()
+      throw new UserCodeInvalid()
     }
 
     const hasCodeMatches = user.code === code
-    console.log('hasCode', hasCodeMatches)
 
     if (!hasCodeMatches) {
-      throw new UserCodeAlreadyExists()
+      throw new UserCodeInvalid()
     }
 
     return {

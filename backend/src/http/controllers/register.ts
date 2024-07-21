@@ -5,7 +5,7 @@ import { RegisterUseCase } from '@/use-cases/register'
 import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 
 import { UserAlreadyExistsError } from '@/use-cases/errors/user-already-exists-error'
-import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists'
+import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists-error'
 
 export async function register(request: FastifyRequest, reply: FastifyReply) {
   const registerBodySchema = z.object({
