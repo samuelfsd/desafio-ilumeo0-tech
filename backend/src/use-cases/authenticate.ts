@@ -2,7 +2,6 @@ import { UsersRepository } from '@/repositories/users-repository'
 
 import { User } from '@prisma/client'
 
-import { UserCodeAlreadyExists } from '@/use-cases/errors/user-code-already-exists-error'
 import { UserCodeInvalid } from '@/use-cases/errors/user-code-invalid-error'
 
 interface AuthenticateUseCaseRequest {
