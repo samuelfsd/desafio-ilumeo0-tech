@@ -22,10 +22,20 @@ export class PrismaUsersRepository implements UsersRepository {
     return user
   }
 
-  async findByCode(code: string): Promise<User | null> {
+  async findByCode(code: string) {
     const user = await prisma.user.findUnique({
       where: {
         code
+      }
+    })
+
+    return user
+  }
+
+  async findById(id: number) {
+    const user = await prisma.user.findUnique({
+      where: {
+        id
       }
     })
 
