@@ -18,10 +18,6 @@ export class AuthenticateUseCase {
   async execute({
     code
   }: AuthenticateUseCaseRequest): Promise<AuthenticateUseCaseResponse> {
-    // TODO:
-    // buscar o usuário no banco pelo código ✅
-    // comparar se o código do banco é igual ao que foi passado
-
     const user = await this.usersRepository.findByCode(code)
 
     if (!user) {
@@ -36,7 +32,7 @@ export class AuthenticateUseCase {
     }
 
     return {
-      user
+      user,
     }
   }
 }
