@@ -4,7 +4,7 @@ import { z } from 'zod'
 import { ResourceNotFoundError } from '@/use-cases/errors/resource-not-found-error'
 import { makeGetUserProfileUseCase } from '@/use-cases/factories/make-get-profile-use-case'
 
-export async function authenticate(
+export async function getProfile(
   request: FastifyRequest,
   reply: FastifyReply
 ) {
