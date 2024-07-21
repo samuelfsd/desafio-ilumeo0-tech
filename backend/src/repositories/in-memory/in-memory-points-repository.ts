@@ -18,4 +18,20 @@ export class InMemoryPointsRepository implements PointsRepository {
 
     return point
   }
+
+  async findByUserIdAndType(userId: number, type: PointType) {
+    const point = this.items.find((item) => item.user_id === userId)
+    const pointWithTypeEntry = point?.type === type
+
+    if(pointWithTypeEntry) {
+      throw new Error()
+    }
+
+    if(!point) {
+      return null
+    }
+
+    this.items.push(point)
+    return point
+  }
 }
