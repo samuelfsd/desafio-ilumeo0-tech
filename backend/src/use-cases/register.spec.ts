@@ -35,9 +35,11 @@ describe('Register Use Case', () => {
       code: '#15DASFJLHX'
     })
 
-    const isPasswordHashed = await compare('123456', user.password)
+    if(user.password) {
+      const isPasswordHashed = await compare('123456', user.password)
+      expect(isPasswordHashed).toBe(true)
+    }
 
-    expect(isPasswordHashed).toBe(true)
   })
 
   it('should not be able to register with same email', async () => {

@@ -30,7 +30,7 @@ describe('Authenticate Use Case', () => {
   })
 
   it('should not be able to authenticate with wrong code', async () => {
-    expect(() =>
+    await expect(() =>
       sut.execute({
         code: '#1ABCDEJ10'
       })
