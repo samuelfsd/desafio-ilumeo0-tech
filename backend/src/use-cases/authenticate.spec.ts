@@ -18,7 +18,7 @@ describe('Authenticate Use Case', () => {
     await usersRepository.create({
       name: 'John Doe',
       email: 'jhondoe@example.com',
-      password: await hash('123456', 6) ,
+      password: await hash('123456', 6),
       code: '#1ABCDEJ10'
     })
 
@@ -30,9 +30,10 @@ describe('Authenticate Use Case', () => {
   })
 
   it('should not be able to authenticate with wrong code', async () => {
-    expect(() => sut.execute({
+    expect(() =>
+      sut.execute({
         code: '#1ABCDEJ10'
-      })).rejects.toBeInstanceOf(UserCodeInvalid)
+      })
+    ).rejects.toBeInstanceOf(UserCodeInvalid)
   })
-
 })
