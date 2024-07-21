@@ -1,0 +1,7 @@
+-- AlterTable
+ALTER TABLE "tb_points" ADD COLUMN     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "tb_users" ALTER COLUMN "email" DROP NOT NULL,
+ALTER COLUMN "name" DROP NOT NULL,
+ALTER COLUMN "password" DROP NOT NULL;
