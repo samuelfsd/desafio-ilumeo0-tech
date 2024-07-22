@@ -34,4 +34,8 @@ export class InMemoryPointsRepository implements PointsRepository {
     this.items.push(point)
     return point
   }
+
+  async findManyByUserId(userId: number) {
+    return this.items.filter(item => item.user_id === userId)
+  }
 }
