@@ -18,7 +18,7 @@ export class PointUseCase {
     userId,
     type
   }: PointUseCaseRequest): Promise<PointUseCaseResponse> {
-    await this.validate(userId, type);
+    await this.validateThereIsNoEntryPoint(userId, type);
 
     const existsPoint = await this.pointsRepository.findByUserIdAndType(userId, type)
 
@@ -42,7 +42,7 @@ export class PointUseCase {
     }
   }
 
-  async validate(userId: number, type: PointType): Promise<void> {
+  private async validateThereIsNoEntryPoint(userId: number, type: PointType): Promise<void> {
     if (type === PointType.EXIT) {
       const existsPoint = await this.pointsRepository.findByUserIdAndType(userId, PointType.ENTRY);
       if (!existsPoint) {
