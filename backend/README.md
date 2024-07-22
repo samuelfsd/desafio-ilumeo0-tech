@@ -2,7 +2,7 @@
 
 Backend feito em node com Fastify utilizando SOLID
 
-### como rodar o projeto 
+### como rodar o projeto
 
 ...
 
@@ -26,5 +26,5 @@ Backend feito em node com Fastify utilizando SOLID
 - [x] Deve ser possível marcar um ponto
 - [x] Deve ser possível marcar o ponto de entrada caso não tenha sido informado anteriormente.
 - [x] Deve ser possível marcar o ponto de saída caso não tenha sido informado anteriormente.
-- [] Deve ser possível visualizar a listagem de dias anteriores trabalhados com seus horários trabalhados.
+- [x] Deve ser possível visualizar a listagem de dias anteriores trabalhados com seus horários trabalhados caso tenham.
 
