@@ -3,8 +3,12 @@
 Backend feito em node com Fastify utilizando SOLID
 
 ### como rodar o projeto
-
-...
+```javascript
+  npm i
+  cp .env.example .env
+  npm run dev
+  npm run test:watch
+```
 
 ### techs usadas
 
@@ -27,4 +31,7 @@ Backend feito em node com Fastify utilizando SOLID
 - [x] Deve ser possível marcar o ponto de entrada caso não tenha sido informado anteriormente.
 - [x] Deve ser possível marcar o ponto de saída caso não tenha sido informado anteriormente.
 - [x] Deve ser possível visualizar a listagem de dias anteriores trabalhados com seus horários trabalhados caso tenham.
+
+
+### tests
 
