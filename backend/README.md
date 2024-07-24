@@ -35,3 +35,4 @@ Backend feito em node com Fastify utilizando SOLID
 
 ### tests
 
+![2024-07-23_23-06](https://github.com/user-attachments/assets/c06dd648-afcb-475f-890f-733a407418e2)
