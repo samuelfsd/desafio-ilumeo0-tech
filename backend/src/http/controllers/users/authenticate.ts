@@ -17,7 +17,14 @@ export async function authenticate(
   try {
     const authenticateUseCase = makeAuthenticateUseCase()
 
-    await authenticateUseCase.execute({ code })
+    const { user } = await authenticateUseCase.execute({ code })
+
+    return reply.status(200).send({
+      user: {
+        ...user,
+        password: undefined
+      }
+    })
   } catch (error) {
     if (error instanceof UserCodeInvalid) {
       return reply.status(400).send({ statusCode: 400, message: error.message })
@@ -26,5 +33,4 @@ export async function authenticate(
     throw error
   }
 
-  return reply.status(200).send()
 }
